@@ -1,0 +1,24 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "name": "Juliet Oma",
+        "email": "julie"
+      },
+      {
+        "id": 2,
+        "name": "James Williams",
+        "email": "jameswilly"
+      },
+      {
+        "id": 3,
+        "name": "Ahmed Ali",
+        "email": "ahmedali"
+      },
+      {
+        "id": 4,
+        "name": "Grace Funsho",
+        "email": "gracefunsho"
+      }
+    ]
+  }

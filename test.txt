@@ -1,0 +1,38 @@
+class MyApp extends StatelessWidget {
+  final Future<User?> user;
+  const MyApp({Key? key, required this.user}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+          appBarTheme: const AppBarTheme(
+        backgroundColor: Colors.blue,
+        centerTitle: true,
+      )),
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text("Http Request"),
+        ),
+        body: Center(
+          child: FutureBuilder<User?>(
+            future: user,
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const CircularProgressIndicator();
+              } else if (snapshot.hasError) {
+                return Text("Error: ${snapshot.error}");
+              } else if (snapshot.data == null) {
+                return const Text("Data is null");
+              } else {
+                return Text(snapshot.data!.name);
+              }
+            },
+          ),
+        ),
+      ),
+    );
+  }
+}
